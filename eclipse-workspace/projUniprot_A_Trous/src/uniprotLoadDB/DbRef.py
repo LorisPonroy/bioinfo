@@ -22,5 +22,8 @@ class DbRef:
             #### TODO : Insertion dbref ####
             ####          ####
             #### FIN TODO ####
-            pass
+            curDB.prepare("INSERT INTO dbref " \
+            + "(accession, db_type, db_ref) VALUES " \
+            + "(:accession, :db_type, :db_ref)")
+            curDB.execute(None, {'accession': accession, 'db_type': self._typeRef, 'db_ref': self._ref})
             

@@ -48,12 +48,10 @@ class Protein:
             #### TODO : Inserer la proteine et ses caracteristiques
             ####          ####
             #### FIN TODO ####
-            curDB.prepare("INSERT into PROTEIN " \
-                            + "(accession, seq, seqLength, seqMass) " \
-                            + "values " \
-                            + "(:accession, :self._seqTxt, self._seqLength, :self._seqMass")
-            curDB.execute(None, {'accession':accession, 'seq': self._seqTxt,
-                                 'seqLength':self._seqLength, 'seqMass':self._seqMass})
+            curDB.prepare("INSERT INTO proteins " \
+            + "(accession, seq, seqLength, seqMass) VALUES " \
+            + "(:accession, :seq, :seqLength, :seqMass)")
+            curDB.execute(None, {'accession': accession, 'seq': self._seqTxt, 'seqLength': self._seqLength, 'seqMass': self._seqMass})
             
                 
             if ProtName.DEBUG_INSERT_DB:
@@ -64,11 +62,8 @@ class Protein:
                     #### retourne par n.insertDB (curDB) et est dans protNameId
                     ####          ####
                     #### FIN TODO ####
-                    curDB.prepare("INSERT into PROT_NAME_2_PROT " \
-                            + "(prot_name_id, prot_name, name_kind, name_type) " \
-                            + "values " \
-                            + "(seq_prot_names.NEXTVAL, :n._name, :n._name_kind, :n._name_type")
-            curDB.execute(None, {'prot_name': n._name,
-                                 'prot_kind':n._name_kind, 'prot_type':n._name_type})
-                    pass
+                    curDB.prepare("INSERT INTO prot_name_2_prot " \
+                    + "(accession,prot_name_id) VALUES " \
+                    + "(:accession,:prot_name_id)")
+                    curDB.execute(None, {'accession': accession, 'prot_name_id': protNameId})
 

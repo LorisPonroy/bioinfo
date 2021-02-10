@@ -34,5 +34,8 @@ class Keyword:
                 #### Cf. exemple de la classe Gene si besoin
                 ####          ####
                 #### FIN TODO ####
-                pass
-
+                curDB.prepare("INSERT INTO keywords " \
+                + "(kw_id, kw_label) VALUES " \
+                + "(:kw_id, :kw_label)")
+                curDB.execute(None, {'kw_id':self._kwId, 'kw_label': self._kwLabel})
+        return self._kwId
