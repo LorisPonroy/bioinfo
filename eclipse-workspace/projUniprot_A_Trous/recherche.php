@@ -232,6 +232,9 @@
 				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSequence<?=$i?>" aria-expanded="false" aria-controls="collapseSequence<?=$i?>">
 				  	Sequence
 				</button>
+				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpecie<?=$i?>" aria-expanded="false" aria-controls="collapseSpecie<?=$i?>">
+				  	Specie
+				</button>
 				<button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGenes<?=$i?>" aria-expanded="false" aria-controls="collapseGenes<?=$i?>">
 				  	Genes
 				</button>
@@ -277,6 +280,12 @@
 					<p class="card-text fs-4">Sequence :<br><text class="font-monospace fs-6"> <?=$datas['sequence']->load() ?></text></p>
 					<p class="card-text fs-4">Length : <?=$datas['seqLength'] ?></p>
 					<p class="card-text fs-4">Mass : <?=$datas['seqMass'] ?></p>
+  				</div>
+			</div>
+			<!-- Espece -->
+			<div class="collapse" id="collapseSpecie<?=$i?>">
+  				<div class="card card-body">
+					<p class="card-text fs-4">Specie :<br><a class="font-monospace fs-6" target="_blank" href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=<?=$datas['specie']?>"> Consulter l'espèce sur la base Taxonomy du NCBI <?=$datas['specie']?></text></p>
   				</div>
 			</div>
 			<!-- Genes -->
